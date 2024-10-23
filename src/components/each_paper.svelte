@@ -21,7 +21,7 @@
 	import SelectedPapers from '../state/selected_papers.svelte';
 
 	// Paper
-	let { paper }: { paper: any } = $props();
+	let { paper, isReadingComments }: { paper: any; isReadingComments?: boolean } = $props();
 	let eachPaperState = new EachPaper(paper);
 
 	// Readable Time
@@ -84,7 +84,9 @@
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class="group" onclick={() => selectedPapersState.selectPaper(paper)}>
 	<div
-		class={'relative flex flex-col bg-white overflow-scroll border border-zinc-300 group-hover:border-black text-zinc-600 group-hover:text-black rounded-xl drop-shadow-xl py-3 cursor-pointer transition-all duration-300 ease-in-out'}
+		class={isReadingComments == true
+			? 'relative flex flex-col bg-white overflow-scroll border border-black text-black rounded-xl drop-shadow-xl py-3 cursor-pointer transition-all duration-300 ease-in-out'
+			: 'relative flex flex-col bg-white overflow-scroll border border-zinc-300 group-hover:border-black text-zinc-600 group-hover:text-black rounded-xl drop-shadow-xl py-3 cursor-pointer transition-all duration-300 ease-in-out'}
 	>
 		<div class="px-4">
 			<!-- Date and ID -->
@@ -115,7 +117,9 @@
 				target="_blank"
 				rel="noopener noreferrer"
 				download
-				class={'group/title font-semibold text-zinc-500 group-hover:text-black transition-all duration-300 ease-in-out '}
+				class={isReadingComments == true
+					? 'group/title font-semibold text-black transition-all duration-300 ease-in-out'
+					: 'group/title font-semibold text-zinc-500 group-hover:text-black transition-all duration-300 ease-in-out '}
 			>
 				<span class="hover:underline underline-offset-4 decoration-zinc-400 decoration-1">
 					{paper['title']}
@@ -159,7 +163,7 @@
 					</span>
 				</div>
 
-				<a href="/papers/{paper['extractedID']}">
+				<a href="/comments/{paper['extractedID']}">
 					<div
 						class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:border-zinc-800 hover:text-black transition-all duration-200 ease-in-out"
 					>
@@ -262,7 +266,8 @@
 		<!-- Summary -->
 		<div class="px-3">
 			<div
-				class={selectedPapersState.selectedPapersID.includes(paper['extractedID']) == true
+				class={selectedPapersState.selectedPapersID.includes(paper['extractedID']) == true ||
+				isReadingComments
 					? 'pt-3 text-sm transition-all duration-300 ease-in-out'
 					: 'hidden'}
 			>

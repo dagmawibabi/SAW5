@@ -13,3 +13,4 @@ export const likePaperURL = `${baseLikeURL}/paper`;
 export const baseCommentsURL = `${baseURL}/comment`;
 export const paperCommentsURL = `${baseCommentsURL}/getPaperComments`;
 export const trailingCommentsURL = `${baseCommentsURL}/getTrailingComments`;
+export const likeCommentURL = `${baseCommentsURL}/likeComment`;

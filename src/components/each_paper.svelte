@@ -150,7 +150,7 @@
 			>
 				<!-- svelte-ignore a11y_click_events_have_key_events -->
 				<div
-					class="w-fit flex items-center gap-x-2 px-2 py-1 border border-transparent rounded-2xl hover:border-zinc-800 hover:text-black transition-all duration-200 ease-in-out"
+					class="w-fit flex items-center gap-x-2 px-2 py-1 border border-transparent rounded-2xl hover:bg-zinc-200 hover:text-black transition-all duration-200 ease-in-out"
 					onclick={() => eachPaperState.likePaper()}
 				>
 					<Heart
@@ -163,17 +163,19 @@
 					</span>
 				</div>
 
-				<a href="/comments/{paper['extractedID']}">
+				<a href="/comments/paper/{paper['extractedID']}">
 					<div
-						class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:border-zinc-800 hover:text-black transition-all duration-200 ease-in-out"
+						class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:bg-zinc-200 hover:text-black transition-all duration-200 ease-in-out"
 					>
 						<MessageCircle size={15} />
-						<span class="hidden md:flex lg:flex xl:flex 2xl:flex"> Comment </span>
+						<span class="hidden md:flex lg:flex xl:flex 2xl:flex">
+							{eachPaperState.commentCount}
+						</span>
 					</div>
 				</a>
 
 				<div
-					class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:border-zinc-800 hover:text-black transition-all duration-200 ease-in-out"
+					class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:bg-zinc-200 hover:text-black transition-all duration-200 ease-in-out"
 				>
 					<Download size={15} />
 					<span class="hidden md:flex lg:flex xl:flex 2xl:flex"> Download </span>
@@ -181,7 +183,7 @@
 
 				<!-- svelte-ignore a11y_click_events_have_key_events -->
 				<div
-					class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:border-zinc-800 hover:text-black transition-all duration-200 ease-in-out"
+					class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:bg-zinc-200 hover:text-black transition-all duration-200 ease-in-out"
 					onclick={() => eachPaperState.bookmarkPaper()}
 				>
 					<Bookmark
@@ -199,7 +201,7 @@
 					<DropdownMenu.Root>
 						<DropdownMenu.Trigger>
 							<div
-								class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:border-zinc-800 hover:text-black transition-all duration-200 ease-in-out"
+								class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:bg-zinc-200 hover:text-black transition-all duration-200 ease-in-out"
 							>
 								<Link2 size={15} />
 								<span class="hidden md:flex lg:flex xl:flex 2xl:flex"> Copy </span>

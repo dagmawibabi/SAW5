@@ -1,14 +1,11 @@
 <script lang="ts">
 	import axios from 'axios';
 	import { page } from '$app/stores';
-	import Navigation from '../../../components/navigation.svelte';
-	import EachPaper from '../../../components/each_paper.svelte';
-	import Comments from '../../../state/comments.svelte';
-	import FeedSkeletons from '../../../components/skeleton/feed_skeletons.svelte';
-	import EachComment from '../../../components/each_comment.svelte';
-
-	let comments: any[];
-	let paper: any;
+	import Navigation from '../../../../components/navigation.svelte';
+	import FeedSkeletons from '../../../../components/skeleton/feed_skeletons.svelte';
+	import EachPaper from '../../../../components/each_paper.svelte';
+	import EachComment from '../../../../components/each_comment.svelte';
+	import Comments from '../../../../state/comments.svelte';
 
 	let commentsState = new Comments();
 
@@ -45,12 +42,6 @@
 							<div class="flex flex-col gap-y-5">
 								{#each commentsState.comments as comment}
 									<EachComment {comment} />
-
-									{#if comment['trailingComments'] && comment['trailingComments'].length > 0}
-										{#each comment['trailingComments'] as eachTrailingComment}
-											<EachComment comment={eachTrailingComment} />
-										{/each}
-									{/if}
 								{/each}
 							</div>
 						</div>

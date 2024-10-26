@@ -7,6 +7,7 @@ class Comments {
 	comments: any[] = $state([]);
 	loading: boolean = $state(true);
 
+	rootComment: any = $state();
 	trailingComments: any[] = $state([]);
 	trailingCommentsLoading: boolean = $state(true);
 
@@ -28,6 +29,8 @@ class Comments {
 
 	async getTrailingComments(commentID?: string) {
 		this.trailingCommentsLoading = true;
+		this.trailingComments = [];
+		this.rootComment = {};
 		const results = await axios.post(
 			trailingCommentsURL,
 			{
@@ -37,10 +40,11 @@ class Comments {
 				withCredentials: true
 			}
 		);
-
-		this.trailingComments = results.data;
+		console.log('here');
+		this.rootComment = results.data['rootComment'];
+		this.trailingComments = results.data['comments'];
 		this.trailingCommentsLoading = false;
-		console.log(results.data);
+		// console.log(results.data);
 	}
 }
 

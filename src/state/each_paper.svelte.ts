@@ -6,12 +6,14 @@ import Bookmarks from './bookmarks.svelte';
 class EachPaper {
 	paper: any = $state();
 	likes: number = $state(0);
+	commentCount: number = $state(0);
 	isLiked: boolean = $state(false);
 	isBookmarked: boolean = $state(false);
 
 	constructor(paper: any) {
 		this.paper = paper;
 		this.likes = this.paper['likes'];
+		this.commentCount = this.paper['commentCount'];
 		this.isLiked = this.paper['isLiked'];
 		this.isBookmarked = this.paper['isBookmarked'];
 	}

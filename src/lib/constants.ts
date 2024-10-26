@@ -3,6 +3,8 @@ const baseURL = 'http://localhost:6400';
 export const authBaseURL = baseURL;
 export const paperDiscoverURL = baseURL + '/arxiv/discoverLocal';
 
+export const searchURL = baseURL + '/arxiv/search';
+
 export const baseBookmarkURL = `${baseURL}/bookmark`;
 export const myBookmarkURL = `${baseBookmarkURL}/myBookmarks`;
 export const bookmarkPaperURL = `${baseBookmarkURL}/paper`;

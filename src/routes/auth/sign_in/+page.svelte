@@ -4,7 +4,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import Input from '$lib/components/ui/input/input.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
-	import BetterAuthRemark from '../../../components/better_auth_remark.svelte';
+	import BetterAuthRemark from '../../../components/remarks/better_auth_remark.svelte';
 
 	let email = $state('');
 	let password = $state('');
@@ -45,7 +45,7 @@
 			</div>
 			<div class="mt-4 text-center text-sm">
 				Don't have an account?
-				<a href="/auth/sign_up" class="underline">Sign up</a>
+				<a href="/auth/sign_up" class="hover:underline underline-offset-4">Sign up</a>
 			</div>
 		</Card.Content>
 	</Card.Root>

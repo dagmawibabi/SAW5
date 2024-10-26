@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import EachComment from '../../../../components/each_comment.svelte';
 	import Navigation from '../../../../components/navigation.svelte';
-	import FeedSkeletons from '../../../../components/skeleton/feed_skeletons.svelte';
+	import CommentsSkeleton from '../../../../components/skeleton/comments_skeleton.svelte';
 	import Comments from '../../../../state/comments.svelte';
 
 	let commentsState = new Comments();
@@ -31,7 +31,7 @@
 
 			<div class="pt-10 flex flex-col gap-y-4 pb-3">
 				{#if commentsState.trailingCommentsLoading == true}
-					<FeedSkeletons />
+					<CommentsSkeleton />
 				{:else if commentsState.trailingComments.length == 0}
 					<div class="text-center pt-36 text-zinc-500 text-sm">
 						<span> No replies, be the first to reply! </span>
@@ -41,7 +41,7 @@
 						<span> Replies ... </span>
 					</div>
 					<!-- Replies -->
-					<div>
+					<div class="pl-5">
 						<div class="flex flex-col gap-y-5">
 							{#each commentsState.trailingComments as comment}
 								<EachComment {comment} />

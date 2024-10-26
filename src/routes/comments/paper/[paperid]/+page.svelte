@@ -6,6 +6,9 @@
 	import EachPaper from '../../../../components/each_paper.svelte';
 	import EachComment from '../../../../components/each_comment.svelte';
 	import Comments from '../../../../state/comments.svelte';
+	import SkeletonPaper from '../../../../components/skeleton/skeleton_paper.svelte';
+	import CommentSkeleton from '../../../../components/skeleton/comment_skeleton.svelte';
+	import CommentsSkeleton from '../../../../components/skeleton/comments_skeleton.svelte';
 
 	let commentsState = new Comments();
 
@@ -24,7 +27,9 @@
 
 			<div class="pt-10 flex flex-col gap-y-4 pb-3">
 				{#if commentsState.loading == true}
-					<FeedSkeletons />
+					<SkeletonPaper withSummary={true} />
+
+					<CommentsSkeleton />
 				{:else}
 					<!-- Paper -->
 					<EachPaper paper={commentsState.paper} isReadingComments={true} />

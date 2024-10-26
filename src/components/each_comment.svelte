@@ -14,7 +14,17 @@
 
 	// Readable Time
 	const timestamp = comment['createdAt'];
-	const readableTime = moment(timestamp).format('MMM Do YYYY');
+	const now = moment();
+	const commentTime = moment(timestamp);
+	let readableTime = $state();
+
+	if (now.isSame(commentTime, 'day')) {
+		readableTime = commentTime.format('h:mm A'); // Show time only if today
+	} else if (now.diff(commentTime, 'days') <= 30) {
+		readableTime = now.diff(commentTime, 'days') + ' days ago'; // Show days ago if recent
+	} else {
+		readableTime = commentTime.format('MMM Do YYYY'); // Show month, day, year if older than a month
+	}
 
 	//
 	let eachCommentState = new EachComment(comment);
@@ -67,6 +77,7 @@
 		class="flex items-center gap-x-3 bg-white overflow-scroll border border-zinc-300 group-hover:border-black text-zinc-600 group-hover:text-black rounded-xl drop-shadow-md hover:drop-shadow-lg pt-2 pb-1 pr-4 cursor-pointer transition-all duration-300 ease-in-out"
 	>
 		<div>
+			<!-- Commenter and Date -->
 			<div class="pl-4 flex gap-x-4 text-xs">
 				<div class="flex items-center gap-x-1">
 					<User size={12} />

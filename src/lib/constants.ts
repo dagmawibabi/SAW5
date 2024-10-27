@@ -1,6 +1,6 @@
 const baseURL = 'https://www.dagmawi.dev/api'; // || 'http://localhost:6400';
 
-export const authBaseURL = baseURL;
+export const authBaseURL = 'https://www.dagmawi.dev/api/api';
 export const paperDiscoverURL = baseURL + '/arxiv/discoverLocal';
 
 export const searchURL = baseURL + '/arxiv/search';

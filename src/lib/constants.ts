@@ -1,6 +1,8 @@
-const baseURL = 'https://www.dagmawi.dev/api'; // || 'http://localhost:6400';
+import { env } from '$env/dynamic/public';
 
-export const authBaseURL = 'https://www.dagmawi.dev/api/api';
+const baseURL = env.PUBLIC_API_BASE_URL;
+
+export const authBaseURL = baseURL;
 export const paperDiscoverURL = baseURL + '/arxiv/discoverLocal';
 
 export const searchURL = baseURL + '/arxiv/search';

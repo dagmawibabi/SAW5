@@ -106,7 +106,7 @@
 						</span>
 					</div>
 
-					{selectedPapersState.selectedPapersID}
+					<!-- {selectedPapersState.selectedPapersID} -->
 				</div>
 				<!-- <div class={$isBookmarked ? 'w-2 h-2 rounded-full bg-emerald-300' : ''}></div> -->
 			</div>
@@ -158,7 +158,7 @@
 						fill={eachPaperState.isLiked == true ? 'red' : 'white'}
 						class={eachPaperState.isLiked == true ? 'text-red-500' : ''}
 					/>
-					<span class="hidden md:flex lg:flex xl:flex 2xl:flex pb-[2px]">
+					<span class="flex pb-[2px]">
 						{eachPaperState.likes}
 					</span>
 				</div>
@@ -168,7 +168,7 @@
 						class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:bg-zinc-200 hover:text-black transition-all duration-200 ease-in-out"
 					>
 						<MessageCircle size={15} />
-						<span class="hidden md:flex lg:flex xl:flex 2xl:flex">
+						<span class="flex pl-1">
 							{eachPaperState.commentCount}
 						</span>
 					</div>

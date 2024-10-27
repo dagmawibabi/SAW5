@@ -17,7 +17,12 @@
 		"
 		>
 			<Navigation />
-			<div class="pt-10">
+
+			<div class="pt-7 pb-5 pl-3 text-zinc-600 font-semibold text-base">
+				<span> Bookmarks ... </span>
+			</div>
+
+			<div class="">
 				<div class="flex flex-col gap-y-5">
 					{#if bookmarksState.loading == true}
 						<!-- Display Skeletons if loading -->

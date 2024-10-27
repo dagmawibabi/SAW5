@@ -8,7 +8,11 @@
 </script>
 
 <div class="absolute bottom-0 left-0 right-0 h-fit backdrop-blur-sm pb-4">
-	<div class="flex flex-col m-auto w-2/5 bg-transparent pt-3">
+	<div
+		class="flex flex-col m-auto bg-transparent pt-3
+	 w-full md:2/5 lg:2/5 xl:2/5 2xl:2/5
+	 px-2 md:px-0 lg:px-0 xl:px-0 2xl:px-0"
+	>
 		<!-- Input Box -->
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<div class="group flex items-center border border-zinc-400 rounded-3xl bg-white">

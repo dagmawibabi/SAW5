@@ -112,7 +112,7 @@
 							fill={eachCommentState.isLiked == true ? 'red' : 'white'}
 							class={eachCommentState.isLiked == true ? 'text-red-500' : ''}
 						/>
-						<span class="hidden md:flex lg:flex xl:flex 2xl:flex pb-[2px]">
+						<span class="flex pb-[2px]">
 							{eachCommentState.likeCount}
 						</span>
 					</div>
@@ -123,7 +123,7 @@
 							class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:bg-zinc-200 hover:text-black transition-all duration-200 ease-in-out"
 						>
 							<MessageCircle size={12} />
-							<span class="hidden md:flex lg:flex xl:flex 2xl:flex">
+							<span class="flex pl-1">
 								{eachCommentState.comment['trailingCommentCount']}
 							</span>
 						</div>

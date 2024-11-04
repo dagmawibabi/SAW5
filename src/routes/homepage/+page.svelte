@@ -1,44 +1,40 @@
 <script lang="ts">
-	import Papers from '../../state/papers.svelte';
+	import Papers, { papersList } from '../../state/papers.svelte';
 	import EachPaper from '../../components/each_paper.svelte';
 	import Footer from '../../components/footer.svelte';
 	import Navigation from '../../components/navigation.svelte';
 	import FeedSkeletons from '../../components/skeleton/feed_skeletons.svelte';
-	import SearchState from '../../state/search_state.svelte';
 
 	let paperState = new Papers();
 	paperState.discoverPapers();
-	let searchState = new SearchState();
-	$effect(() => {
-		console.log(searchState.searchTerm);
-	});
 </script>
 
 <div
 	class="pt-6 m-auto
-		w-full md:w-2/5 lg:w-2/5 xl:w-2/5 2xl:w-2/5
+		w-full md:w-2/3 lg:w-2/4 xl:w-2/5 2xl:w-2/5
 		px-3 md:px-0 lg:px-0 xl:px-0 2xl:px-0
 		"
 >
 	<!-- Title and Profile -->
 	<Navigation />
 
-	{searchState.searchTerm}
-
+	<!-- Paper List -->
 	<div class="pt-10 flex flex-col gap-y-4 pb-3">
-		{#if paperState.loading === true}
+		{#if papersList.loading === true || papersList.searching === true}
 			<FeedSkeletons />
 		{:else}
-			{#each paperState.papers as eachPaper}
+			{#each papersList.papers as eachPaper}
 				<EachPaper paper={eachPaper} />
 			{/each}
 		{/if}
 	</div>
 
+	<!-- Space -->
 	<div class="h-16"></div>
 
+	<!-- Paper Count -->
 	<div class="text-center text-xs">
-		<span> Showing {paperState.papers.length} Papers.</span>
+		<span> Showing {papersList.papers.length} Papers.</span>
 	</div>
 
 	<!-- Footer -->

@@ -57,7 +57,7 @@
 			</div>
 			<div class="mt-4 text-center text-sm">
 				Already have an account?{' '}
-				<a href="/auth/sign_up" class="hover:underline underline-offset-4"> Sign In </a>
+				<a href="/auth/sign_in" class="hover:underline underline-offset-4"> Sign In </a>
 			</div>
 		</Card.Content>
 	</Card.Root>

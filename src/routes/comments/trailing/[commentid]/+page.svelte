@@ -17,7 +17,7 @@
 	<div class="relative h-full w-full">
 		<div
 			class="pt-6 m-auto h-screen
-		w-full md:w-2/5 lg:w-2/5 xl:w-2/5 2xl:w-2/5
+		w-full md:w-2/3 lg:w-2/4 xl:w-2/5 2xl:w-2/5
 		px-3 md:px-0 lg:px-0 xl:px-0 2xl:px-0
 		"
 		>

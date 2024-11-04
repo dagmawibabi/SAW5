@@ -18,7 +18,7 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { toast } from 'svelte-sonner';
 	import EachPaper from '../state/each_paper.svelte';
-	import SelectedPapers from '../state/selected_papers.svelte';
+	import SelectedPapers, { selectedPapersList } from '../state/selected_papers.svelte';
 
 	// Paper
 	let { paper, isReadingComments }: { paper: any; isReadingComments?: boolean } = $props();
@@ -84,7 +84,8 @@
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class="group" onclick={() => selectedPapersState.selectPaper(paper)}>
 	<div
-		class={isReadingComments == true
+		class={selectedPapersList.selectedPapersID.includes(paper['extractedID']) == true ||
+		isReadingComments == true
 			? 'relative flex flex-col bg-white overflow-scroll border border-black text-black rounded-xl drop-shadow-xl py-3 cursor-pointer transition-all duration-300 ease-in-out'
 			: 'relative flex flex-col bg-white overflow-scroll border border-zinc-300 group-hover:border-black text-zinc-600 group-hover:text-black rounded-xl drop-shadow-xl py-3 cursor-pointer transition-all duration-300 ease-in-out'}
 	>
@@ -106,7 +107,9 @@
 						</span>
 					</div>
 
-					<!-- {selectedPapersState.selectedPapersID} -->
+					<!-- {#each selectedPapersState.selectedPapersID as id}
+						{id}
+					{/each} -->
 				</div>
 				<!-- <div class={$isBookmarked ? 'w-2 h-2 rounded-full bg-emerald-300' : ''}></div> -->
 			</div>
@@ -117,7 +120,8 @@
 				target="_blank"
 				rel="noopener noreferrer"
 				download
-				class={isReadingComments == true
+				class={selectedPapersList.selectedPapersID.includes(paper['extractedID']) == true ||
+				isReadingComments == true
 					? 'group/title font-semibold text-black transition-all duration-300 ease-in-out'
 					: 'group/title font-semibold text-zinc-500 group-hover:text-black transition-all duration-300 ease-in-out '}
 			>
@@ -268,7 +272,7 @@
 		<!-- Summary -->
 		<div class="px-3">
 			<div
-				class={selectedPapersState.selectedPapersID.includes(paper['extractedID']) == true ||
+				class={selectedPapersList.selectedPapersID.includes(paper['extractedID']) == true ||
 				isReadingComments
 					? 'pt-3 text-sm transition-all duration-300 ease-in-out'
 					: 'hidden'}

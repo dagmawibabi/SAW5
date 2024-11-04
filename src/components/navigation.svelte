@@ -11,6 +11,7 @@
 	import NavigationButtons from './navigation_buttons.svelte';
 
 	let session = useSession();
+	console.log($session.data);
 </script>
 
 <div class="flex justify-between items-center">
@@ -37,36 +38,37 @@
 
 		<!-- Profile -->
 		<div class="pt-2 pr-2">
-			{#if $session.data}
-				<DropdownMenu.Root>
-					<DropdownMenu.Trigger>
-						<ProfileAvatar session={$session} />
-					</DropdownMenu.Trigger>
-					<DropdownMenu.Content>
-						<DropdownMenu.Group>
-							<!-- Profile -->
-							<DropdownMenu.Item
-								><ProfileAvatar session={$session} fullInfo={true} /></DropdownMenu.Item
-							>
+			{$session.data?.session.id}
+			<!-- {#if $session.data} -->
+			<DropdownMenu.Root>
+				<DropdownMenu.Trigger>
+					<ProfileAvatar session={$session} />
+				</DropdownMenu.Trigger>
+				<DropdownMenu.Content>
+					<DropdownMenu.Group>
+						<!-- Profile -->
+						<DropdownMenu.Item
+							><ProfileAvatar session={$session} fullInfo={true} /></DropdownMenu.Item
+						>
 
-							<div class="py-1">
-								<Separator />
-							</div>
-							<!-- Logout -->
-							<!-- svelte-ignore a11y-click-events-have-key-events -->
-							<!-- svelte-ignore a11y-no-static-element-interactions -->
-							<DropdownMenu.Item
-								><div
-									class="w-full text-center hover:text-red-500 cursor-pointer"
-									on:click={() => handleLogout($session.data?.session.id)}
-								>
-									Logout
-								</div></DropdownMenu.Item
+						<div class="py-1">
+							<Separator />
+						</div>
+						<!-- Logout -->
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						<DropdownMenu.Item
+							><div
+								class="w-full text-center hover:text-red-500 cursor-pointer"
+								on:click={() => handleLogout($session.data?.session.id)}
 							>
-						</DropdownMenu.Group>
-					</DropdownMenu.Content>
-				</DropdownMenu.Root>
-			{/if}
+								Logout
+							</div></DropdownMenu.Item
+						>
+					</DropdownMenu.Group>
+				</DropdownMenu.Content>
+			</DropdownMenu.Root>
+			<!-- {/if} -->
 		</div>
 	</div>
 </div>

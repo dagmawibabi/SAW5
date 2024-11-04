@@ -2,7 +2,7 @@ import { env } from '$env/dynamic/public';
 
 const baseURL = env.PUBLIC_API_BASE_URL;
 
-export const authBaseURL = baseURL;
+export const authBaseURL = 'http://localhost:6400';
 export const paperDiscoverURL = baseURL + '/arxiv/discoverLocal';
 
 export const searchURL = baseURL + '/arxiv/search';

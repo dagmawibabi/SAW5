@@ -29,6 +29,7 @@
 		"prettier-plugin-svelte": "^3.2.6",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
+		"svelte-loading-spinners": "^0.3.6",
 		"svelte-sonner": "^0.3.28",
 		"tailwind-merge": "^2.5.4",
 		"tailwind-variants": "^0.2.1",

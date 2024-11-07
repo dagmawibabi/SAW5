@@ -6,11 +6,13 @@ export const handleSignIn = async (email: string, password: string) => {
 		{
 			email: email,
 			password: password,
-			callbackURL: '/homepage'
 		},
 		{
 			onError(context) {
 				alert(context.error.message);
+			},
+			onSuccess() {
+				goto("/homepage");
 			}
 		}
 	);
@@ -26,10 +28,12 @@ export const handleSignUp = async (
 		email: email,
 		password: password,
 		name: `${firstName} ${lastName}`,
-		callbackURL: '/homepage',
 		fetchOptions: {
 			onError(context) {
 				alert(context.error.message);
+			},
+			onSuccess() {
+				goto("/homepage")
 			}
 		}
 	});
@@ -44,7 +48,7 @@ export const handleForgetPassword = async (email: string) => {
 		{
 			onSuccess() {
 				alert('Password reset link sent to your email');
-				window.location.href = '/';
+				goto('/');
 			},
 			onError(context) {
 				alert(context.error.message);
@@ -67,7 +71,7 @@ export const handleResetPassword = async (password: string) => {
 	});
 };
 
-export const handleLogout = async (id: string | undefined) => {
-	authClient.user.revokeSession({ id: id! });
+export const handleLogout = async () => {
+	await authClient.signOut()
 	goto('/');
 };

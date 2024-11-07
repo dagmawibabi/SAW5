@@ -10,8 +10,7 @@
 	import { page } from '$app/stores';
 	import NavigationButtons from './navigation_buttons.svelte';
 
-	let session = useSession();
-	// console.log($session);
+	let session = useSession()
 </script>
 
 <div class="flex justify-between items-center">
@@ -60,7 +59,7 @@
 						<DropdownMenu.Item
 							><div
 								class="w-full text-center hover:text-red-500 cursor-pointer"
-								on:click={() => handleLogout($session.data?.session.id)}
+								on:click={() => handleLogout()}
 							>
 								Logout
 							</div></DropdownMenu.Item

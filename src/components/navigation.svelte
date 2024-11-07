@@ -11,7 +11,7 @@
 	import NavigationButtons from './navigation_buttons.svelte';
 
 	let session = useSession();
-	console.log($session.data);
+	console.log($session);
 </script>
 
 <div class="flex justify-between items-center">

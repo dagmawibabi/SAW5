@@ -11,7 +11,7 @@
 	import NavigationButtons from './navigation_buttons.svelte';
 
 	let session = useSession();
-	console.log($session);
+	// console.log($session);
 </script>
 
 <div class="flex justify-between items-center">
@@ -38,7 +38,7 @@
 
 		<!-- Profile -->
 		<div class="pt-2 pr-2">
-			{$session.data?.session.id}
+			<!-- {$session.data?.session.id} -->
 			<!-- {#if $session.data} -->
 			<DropdownMenu.Root>
 				<DropdownMenu.Trigger>

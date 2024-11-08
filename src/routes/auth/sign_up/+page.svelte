@@ -4,12 +4,14 @@
 	import * as Card from '$lib/components/ui/card';
 	import Input from '$lib/components/ui/input/input.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
+	import { Circle } from 'svelte-loading-spinners';
 	import BetterAuthRemark from '../../../components/remarks/better_auth_remark.svelte';
 
 	let email = $state('');
 	let password = $state('');
 	let firstName = $state('');
 	let lastName = $state('');
+	let isSigningUp = $state(false);
 </script>
 
 <div class="h-screen flex flex-col justify-center">
@@ -49,10 +51,16 @@
 				<Button
 					type="button"
 					class="w-full"
-					on:click={() =>
-						handleSignUp(firstName.trim(), lastName.trim(), email.trim(), password.trim())}
+					on:click={() => {
+						isSigningUp = !isSigningUp;
+						handleSignUp(firstName.trim(), lastName.trim(), email.trim(), password.trim());
+					}}
 				>
-					Sign Up
+					{#if isSigningUp === true}
+						<Circle size="22" color="#ffffff" duration="1s" />
+					{:else}
+						<span class="font-semibold"> Sign Up </span>
+					{/if}
 				</Button>
 			</div>
 			<div class="mt-4 text-center text-sm">

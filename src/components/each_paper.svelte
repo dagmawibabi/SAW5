@@ -78,6 +78,7 @@
 
 	//
 	let selectedPapersState = new SelectedPapers();
+	let isReadingSummary = $state(false);
 </script>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -180,6 +181,14 @@
 
 				<div
 					class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:bg-zinc-200 hover:text-black transition-all duration-200 ease-in-out"
+					onclick={() => (isReadingSummary = !isReadingSummary)}
+				>
+					<Scroll size={14} />
+					<span class="hidden md:flex lg:flex xl:flex 2xl:flex"> Summary </span>
+				</div>
+
+				<div
+					class="w-fit flex items-center gap-x-1 px-2 py-1 border border-transparent rounded-xl hover:bg-zinc-200 hover:text-black transition-all duration-200 ease-in-out"
 				>
 					<Download size={15} />
 					<span class="hidden md:flex lg:flex xl:flex 2xl:flex"> Download </span>
@@ -272,8 +281,7 @@
 		<!-- Summary -->
 		<div class="px-3">
 			<div
-				class={selectedPapersList.selectedPapersID.includes(paper['extractedID']) == true ||
-				isReadingComments
+				class={isReadingSummary == true || isReadingComments
 					? 'pt-3 text-sm transition-all duration-300 ease-in-out'
 					: 'hidden'}
 			>

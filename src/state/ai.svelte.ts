@@ -1,24 +1,43 @@
 import { aiChatURL } from '$lib/constants';
 import axios from 'axios';
+import { selectedPapersList } from './selected_papers.svelte';
+import { searchTerm } from './search_state.svelte';
 
-export const papersList = $state({ loading: true, searching: false, papers: [] });
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const conversationList = $state<{ conversation: any[] }>({
+	conversation: []
+});
 
 class AI {
-	async askAI() {
-		papersList.loading = true;
+	async askAI(chosenModel: string) {
+		let newMessage = {
+			from: 'user',
+			content: searchTerm.sendToAI
+		};
+		conversationList.conversation.push(newMessage);
+		newMessage = {
+			from: 'system',
+			content: 'loading ...'
+		};
+		conversationList.conversation.push(newMessage);
 		const results = await axios.post(
 			aiChatURL,
 			{
-				prompt: 'What are the titles',
-				paperIDs: ['http://arxiv.org/abs/2102.12141v1', 'http://arxiv.org/abs/2305.04701v2'],
-				aiModel: 'gemini-1.5-flash'
+				prompt: searchTerm.sendToAI,
+				papers: selectedPapersList.selectedPapers,
+				aiModel: chosenModel
 			},
 			{
 				withCredentials: true
 			}
 		);
-		papersList.papers = results.data;
-		papersList.loading = false;
+		newMessage = {
+			from: 'ai',
+			content: results.data
+		};
+		conversationList.conversation.pop();
+		conversationList.conversation.push(newMessage);
+		return results;
 	}
 }
 

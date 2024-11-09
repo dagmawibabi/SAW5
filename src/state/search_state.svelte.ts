@@ -1,5 +1,4 @@
-class SearchState {
-	searchTerm: string = $state('');
-}
-
-export default SearchState;
+export const searchTerm = $state<{ searchTerm: string; sendToAI: string }>({
+	searchTerm: '',
+	sendToAI: ''
+});

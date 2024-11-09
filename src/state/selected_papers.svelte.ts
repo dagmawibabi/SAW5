@@ -10,6 +10,8 @@ export const selectedPapersList = $state<{ selectedPapers: any[]; selectedPapers
 class SelectedPapers {
 	selectPaper(paper: any) {
 		if (selectedPapersList.selectedPapersID.includes(paper['extractedID']) == true) {
+			console.log('unselecting');
+			console.log(paper['extractedID']);
 			// Unselect
 			selectedPapersList.selectedPapersID = selectedPapersList.selectedPapersID.filter(
 				(id) => id !== paper['extractedID']
@@ -23,8 +25,8 @@ class SelectedPapers {
 			selectedPapersList.selectedPapers.push(paper);
 		}
 
-		console.log(selectedPapersList.selectedPapersID);
-		console.log(selectedPapersList.selectedPapersID.length);
+		// console.log(selectedPapersList.selectedPapersID);
+		// console.log(selectedPapersList.selectedPapersID.length);
 	}
 }
 

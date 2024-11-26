@@ -5,7 +5,7 @@
 
 <Toaster />
 
-<div class="h-screen overflow-scroll">
+<div class="h-screen overflow-scroll no-scrollbar">
 	<slot />
 	<MainInput />
 </div>

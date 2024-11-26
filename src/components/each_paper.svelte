@@ -83,12 +83,12 @@
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<div class="group" onclick={() => selectedPapersState.selectPaper(paper)}>
+<div class="group no-scrollbar" onclick={() => selectedPapersState.selectPaper(paper)}>
 	<div
 		class={selectedPapersList.selectedPapersID.includes(paper['extractedID']) == true ||
 		isReadingComments == true
-			? 'relative flex flex-col bg-white overflow-scroll border border-black text-black rounded-xl drop-shadow-xl py-3 cursor-pointer transition-all duration-300 ease-in-out'
-			: 'relative flex flex-col bg-white overflow-scroll border border-zinc-300 group-hover:border-black text-zinc-600 group-hover:text-black rounded-xl drop-shadow-xl py-3 cursor-pointer transition-all duration-300 ease-in-out'}
+			? 'no-scrollbar relative flex flex-col bg-white overflow-scroll border border-black text-black rounded-xl drop-shadow-xl py-3 cursor-pointer transition-all duration-300 ease-in-out'
+			: 'no-scrollbar relative flex flex-col bg-white overflow-scroll border border-zinc-300 group-hover:border-black text-zinc-600 group-hover:text-black rounded-xl drop-shadow-xl py-3 cursor-pointer transition-all duration-300 ease-in-out'}
 	>
 		<div class="px-4">
 			<!-- Date and ID -->
@@ -135,10 +135,10 @@
 			</a>
 
 			<!-- Authors -->
-			<div class="flex gap-x-1 items-center overflow-scroll pt-1 pb-2">
+			<div class="no-scrollbar flex gap-x-1 items-center overflow-scroll pt-1 pb-2">
 				<User size={12} />
 				{#each paper['authors'] as eachAuthor}
-					<div class="w-fit text-xs italic linc pb-[1px]">
+					<div class="no-scrollbar w-fit text-xs italic linc pb-[1px]">
 						<span>
 							{eachAuthor},
 						</span>

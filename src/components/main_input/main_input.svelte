@@ -46,14 +46,14 @@
 </script>
 
 <div
-	class="absolute bottom-0 left-0 right-0 h-fit backdrop-blur-md pb-4 m-auto rounded-tl-xl rounded-tr-xl border-t border-zinc-200
+	class="no-scrollbar absolute bottom-0 left-0 right-0 h-fit backdrop-blur-md pb-4 m-auto rounded-tl-xl rounded-tr-xl border-t border-zinc-200
 	w-full md:w-2/3 lg:w-2/4 xl:w-2/5 2xl:w-2/5"
 >
 	{#if isAIMode == true}
 		<div
 			class={minimizeConversation == true
-				? 'min-h-10 max-h-10 overflow-clip p-2'
-				: 'min-h-10 max-h-[600px] overflow-clip p-2'}
+				? 'no-scrollbar min-h-10 max-h-10 overflow-clip p-2'
+				: 'no-scrollbar min-h-10 max-h-[600px] overflow-clip p-2'}
 		>
 			<!-- AI Options -->
 			<div class="w-full flex justify-between items-center pb-2">
@@ -191,7 +191,7 @@
 	{/if}
 
 	<!-- Main Input Box -->
-	<div class="flex flex-col bg-transparent pt-2 px-2">
+	<div class="no-scrollbar flex flex-col bg-transparent pt-2 px-2">
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<div class="group flex border border-zinc-400 rounded-3xl bg-white overflow-clip">
 			<!-- Input Box -->

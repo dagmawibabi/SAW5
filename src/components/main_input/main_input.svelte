@@ -150,19 +150,19 @@
 			<!-- Chats -->
 			<div
 				class={conversationList.conversation.length > 0
-					? 'pb-24 overflow-scroll max-h-[580px]'
-					: 'pb-0'}
+					? 'no-scrollbar pb-24 overflow-scroll max-h-[580px]'
+					: 'no-scrollbar pb-0'}
 			>
 				{#each conversationList.conversation as eachMessage}
 					<div
 						class={eachMessage.from == 'user'
-							? 'w-full flex justify-end py-1'
-							: 'w-full flex justify-start py-1'}
+							? 'no-scrollbar w-full flex justify-end py-1'
+							: 'no-scrollbar w-full flex justify-start py-1'}
 					>
 						<div
 							class={eachMessage.from == 'system'
-								? 'animate-pulse bg-white max-w-[80%] px-3 py-1 rounded-xl border text-xs'
-								: 'bg-white max-w-[80%] px-3 py-1 rounded-xl border text-xs'}
+								? 'no-scrollbar animate-pulse bg-white max-w-[80%] px-3 py-1 rounded-xl border text-xs'
+								: 'no-scrollbar bg-white max-w-[80%] px-3 py-1 rounded-xl border text-xs'}
 						>
 							<Markdown md={eachMessage['content']} {plugins} />
 						</div>
